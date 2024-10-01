@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초 공리</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>기초 공리</h1>
+    </header>
+
+    <section>
+        <h2>기초 공리</h2>
+        <p>집합론은 몇 가지 기본 공리들에 의해 정의된다. 아래는 ZFC 집합론에서 사용되는 주요 공리들이다:</p>
+        <h3>외연 공리</h3>
+        <p>\(\forall A \forall B [\forall x (x \in A \Leftrightarrow x\in B )\Rightarrow A=B]\)</p>
+        <h3>공집합 공리</h3>
+        <p>\(\exists B\forall x (x\notin B)\)</p>
+        <h3>짝 공리</h3>
+        <p>\(\forall u \forall v \exists B \forall x (x\in  B \Leftrightarrow x=u \vee x=v) \)</p>
+        <h3>합집합 공리, 기초 버전</h3>
+        <p>\(\forall a\forall b \exists B \forall x (x\in B \Leftrightarrow x\in a \vee x\in b ) \)</p>
+        <h3>멱집합 공리</h3>
+        <p>\(\forall a \exists B \forall x (x\in B \Leftrightarrow x\subseteq a ) \)</p>
+        <p> 분리 공리, 대체 공리, 무한 공리, 정칙성 공리, 선택 공리는 나중에 추가될 것이다.</p>
+    </section>
+
+    <footer>
+        <h1>© 2024 Merope</p>
+    </footer>
+</body>
+</html>

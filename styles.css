@@ -1,0 +1,90 @@
+/* 기본 스타일 */
+body {
+    background-color: #ECF0F1; /* 밝은 회색 배경 */
+    color: #34495E; /* 어두운 회색 텍스트 */
+    font-family: 'Roboto', sans-serif; /* 현대적인 폰트 */
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #2C3E50; /* 차분한 네이비 */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+}
+
+/* 네비게이션 스타일 */
+nav ul {
+    list-style-type: none; /* 목록 점 제거 */
+    padding: 0;
+    text-align: center;
+    margin: 20px 0; /* 위아래 간격 */
+}
+
+nav ul li {
+    display: inline-block; /* 가로로 나열 */
+    margin: 0 15px; /* 링크 사이 간격 */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1ABC9C; /* 부드러운 민트 강조 색 */
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white; /* 흰색 배경 */
+    border: 2px solid #1ABC9C; /* 민트색 테두리 */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #1ABC9C; /* 호버 시 민트색으로 배경 변경 */
+    color: white; /* 텍스트는 흰색으로 */
+}
+
+/* 섹션 스타일 */
+section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 섹션에 그림자 */
+    border-radius: 10px;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+h2 {
+    font-size: 28px; /* h2 제목 크기 */
+    color: #1ABC9C; /* h2 텍스트 색상 */
+}
+
+p {
+    font-size: 16px; /* 단락 텍스트 크기 */
+    line-height: 1.6; /* 줄 간격 */
+    color: #34495E; /* 단락 텍스트 색상 */
+}
+
+/* 특정 링크의 스타일링 */
+.highlighted-link {
+    font-size: 18px;  /* 글씨 크기 */
+    font-weight: bold;  /* 글씨 굵기 */
+    color: #1ABC9C;  /* 글씨 색깔 */
+    text-decoration: underline; /* 밑줄 추가 */
+}
+
+img {
+    display: block;
+    margin: 0 auto;  /* 이미지 중앙 정렬 */
+    max-width: 100%;  /* 화면 너비에 맞게 이미지 크기 조정 */
+}
