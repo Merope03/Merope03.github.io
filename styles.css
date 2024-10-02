@@ -3,15 +3,25 @@ body {
     background-color: #ECF0F1; /* 밝은 회색 배경 */
     color: #34495E; /* 어두운 회색 텍스트 */
     font-family: 'Roboto', sans-serif; /* 현대적인 폰트 */
+    display : flex;
+    flex-direction: column;
+    min-height : 100vh;
+    margin : 0;
 }
 
 /* 헤더 스타일 */
 header {
+    height: 80px;
     background-color: #2C3E50; /* 차분한 네이비 */
     color: white;
     text-align: center;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+}
+
+main{
+    flex-grow : 1;
+    padding : 20px;
 }
 
 /* 네비게이션 스타일 */
@@ -55,11 +65,11 @@ section {
 
 /* 푸터 스타일 */
 footer {
+    height : 80px;
     background-color: #2C3E50;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;
+    padding: 20px;
     bottom: 0;
     width: 100%;
 }
