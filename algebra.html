@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section을 이용한 레이아웃</title>
+    <style>
+        /* 기본 Flexbox 레이아웃 */
+        body {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0;
+        }
+        /* 왼쪽 목차 */
+        section.sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        /* 중앙 본문 */
+        section.content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        /* 오른쪽 시계 */
+        section.right-widget {
+            width: 150px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="sidebar">
+        <h2>목차</h2>
+        <ul>
+            <li><a href="#">섹션 1</a></li>
+            <li><a href="#">섹션 2</a></li>
+            <li><a href="#">섹션 3</a></li>
+        </ul>
+    </section>
+
+    <section class="content">
+        <h1>중앙 본문</h1>
+        <p>이곳은 본문 내용이 표시되는 영역입니다.</p>
+    </section>
+
+    <section class="right-widget">
+        <h2>시계</h2>
+        <div id="clock"></div>
+        <script>
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                var timeString = hours + ':' + minutes + ':' + seconds;
+                document.getElementById('clock').innerText = timeString;
+            }
+            setInterval(updateClock, 1000); // 1초마다 시계 업데이트
+            updateClock(); // 페이지 로드 시 즉시 시간 표시
+        </script>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공집합, 짝집합, 합집합, 멱집합</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>공집합, 짝집합, 합집합, 멱집합</h1>
+    </header>
+
+    <div class="container">
+        <!-- 왼쪽 목차 -->
+        <section class="sidebar">
+            <div id="sidebar"></div> 
+        </section>
+        <div id="sidebar"></div> 
+        
+
+        <!-- 중앙 본문 -->
+        <section class="content"> 
+            <h2>공집합</h2>
+            <h3>1.6. 공집합의 존재성과 유일성</h3>
+            <p>공집합이 유일하게 존재한다.</p>
+            <h4>설명.</h4>
+            <p>원소를 아무것도 가지지 않은 집합을 공집합이라 하며, \(\emptyset \)라고 쓴다. 공집합이 유일하게 존재한다는 것은 이 표기법을 정당화한다.</p>
+            <h4>증명.</h4>
+            <p><a href = "00axioms-set-theory.html">1.2 공집합 공리</a>에 의하여 공집합이 존재한다. 유일성을 증명하기 위하여, \(\emptyset_1, \emptyset_2 \)가 존재하여 다음을 만족시킨다고 하자.<br>
+                \(\forall x (x\notin \emptyset_1) \)<br>
+                \(\forall x (x\notin \emptyset_2) \)<br>
+                그러면 이로부터, <br>
+                \( \forall x (x\in \emptyset_1 \Leftrightarrow x\in \emptyset_2 )\)<br>
+                가 공허하게 참이다. 따라서 <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의하여 \(\emptyset_1 = \emptyset_2 \)이다.
+            </p>
+            <h2>짝집합</h2>
+            <h3>1.7. 짝집합의 존재성과 유일성</h3>
+            <p>집합 u,v에 대하여 원소가 오직 u와 v뿐인 짝집합이 존재하며 유일하다.</p>
+            <h4>설명.</h4>
+            <p>곧, 집합이 두 개 있으면 정확히 그 두 집합을 원소로 갖는 집합이 존재한다. 두 집합 u,v가 주어졌을 때, 이들의 짝집합을 \(\{u,v\}\)라고 표기한다.</p>
+            <h4>증명.</h4>
+            <p>집합 u,v가 주어졌다고 하자. <a href = "00axioms-set-theory.html">1.3 짝집합 공리</a>에 의하여 짝집합이 존재한다.<br>
+                유일성을 증명하기 위하여, A와 B가 각각 다음을 만족한다고 하자.<br>
+                \( \forall x (x\in A \Leftrightarrow x=u \vee x=v) \)<br>
+                \( \forall x (x\in B \Leftrightarrow x=u \vee x=v) \)<br>
+                그러면 \(\forall x (x\in A \Leftrightarrow x\in B) \)가 참이다. <br>
+                <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의하여 A=B이다.
+            </p>
+            <h2>합집합</h2>
+            <h3>1.8. 두 집합의 합집합의 존재성과 유일성</h3>
+            <p>집합 a,b에 대하여 a의 원소와 b의 원소를 모두 원소로 가지는 합집합이 존재하며 유일하다.</p>
+            <h4>설명.</h4>
+            <p>두 집합을 합쳐서 하나의 집합을 만들 수 있다. 두 집합 a,b가 주어졌을 때, 이들의 합집합을 \(a\cup b\)로 표기한다.</p>
+            <h4>증명.</h4>
+            <p>두 집합 a,b가 주어졌다고 하자. <a href = "00axioms-set-theory.html">1.4 합집합 공리</a>에 의하여 합집합이 존재한다.<br>
+            A와 B가 각각 이들의 합집합이라 하자. 위와 같은 방식으로, <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의하여 \(A=B\)이다.</p>
+            <h2>멱집합</h2>
+            <h3>1.9. 멱집합의 존재성과 유일성</h3>
+            <p>집합 a에 대하여 a의 부분집합을 전부 모아놓은 집합이 존재하며 유일하다.</p>
+            <h4>설명.</h4>
+            <p>예를 들어, a=\(\{1,2\}\)라고 하자. 그러면 a의 멱집합은 \(\{\emptyset, \{1\}, \{2\}, \{1,2\}\}\)이다. 이를 \(P(a)\)라 표기한다.</p>
+            <h4>증명.</h4>
+            <p>집합 a가 주어졌다고 하자. <a href = "00axioms-set-theory.html">1.5 멱집합 공리</a>에 의하여 멱집합이 존재한다.<br>
+            A와 B가 각각 a의 멱집합이라 하자. 위와 같은 방식으로, <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의하여 A=B이다.</p>
+
+            <p>짝집합과 합집합으로 유한집합을 구할 수 있다. 가장 먼저, 어떤 x에 대해 단일 집합 \(\{x\} = \{x,x\}\)를 구성가능함에 주목하자. <br>
+
+                그리고 주어진 \(x_1, x_2, x_3\)에 대해 다음과 같이 정의한다.<br>
+                
+                \(\{x_1, x_2, x_3\} = \{x_1, x_2\}\cup \{x3\}\) <br>
+                
+                비슷하게 \(\{x_1, x_2, x_3, x_4\}, ...\)을 정의가능하다.</p>
+
+        </section>
+
+        <section class="right-widget">
+            <img src="../../images/settheory_image.webp" alt="집합론" width="500">
+        </section>
+    </div>
+
+    <section>
+        <li><a href="../../index.html" class="highlighted-link" >홈으로</a></li>
+    </section>
+
+    
+
+    <footer>
+        <h1>© 2024 Merope</h1>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // sidebar.html을 동적으로 불러오는 스크립트
+        fetch('../../sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar').innerHTML = data;
+                // 레이아웃 재계산을 강제
+                document.getElementById('sidebar').style.width = 'auto'; 
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // 목차 동작을 위한 JavaScript 코드 실행
+            const mainMenuItems = document.querySelectorAll('.main-menu > a');
+
+            mainMenuItems.forEach(function(item) {
+                const parentLi = item.parentElement;
+                const isActive = localStorage.getItem(item.href); // 저장된 상태 불러오기
+
+                // 저장된 상태가 'true'면 목차를 열기
+                if (isActive === 'true') {
+                    parentLi.classList.add('active');
+                }
+
+                // 상위 목차 클릭 이벤트
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    
+                    // 열고 닫는 상태를 localStorage에 저장
+                    const isOpen = parentLi.classList.contains('active');
+                    localStorage.setItem(item.href, isOpen); // 열림 상태 저장
+                });
+            });
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+});
+        </script>
+</body>
+</html>

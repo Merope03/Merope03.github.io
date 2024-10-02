@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초 공리</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>기초 공리</h1>
+    </header>
+    
+    <div class="container">
+        <!-- 왼쪽 목차 -->
+        <section class="sidebar">
+            <div id="sidebar"></div> 
+        </section>
+        <div id="sidebar"></div> 
+
+        <!-- 중앙 본문 -->
+        <section class="content">
+            <h2>기초 공리</h2>
+            <p>집합론은 몇 가지 기본 공리들에 의해 정의된다. 아래는 ZFC 집합론에서 사용되는 주요 공리들이다 :</p>
+            <h3>1.1. 외연 공리</h3>
+            <p>\(\forall A \forall B [\forall x (x \in A \Leftrightarrow x\in B )\Rightarrow A=B]\)</p>
+            <h3>1.2. 공집합 공리</h3>
+            <p>\(\exists B\forall x (x\notin B)\)</p>
+            <h3>1.3. 짝 공리</h3>
+            <p>\(\forall u \forall v \exists B \forall x (x\in  B \Leftrightarrow x=u \vee x=v) \)</p>
+            <h3>1.4. 합집합 공리, 기초 버전</h3>
+            <p>\(\forall a\forall b \exists B \forall x (x\in B \Leftrightarrow x\in a \vee x\in b ) \)</p>
+            <h3>1.5. 멱집합 공리</h3>
+            <p>\(\forall a \exists B \forall x (x\in B \Leftrightarrow x\subseteq a ) \)</p>
+            <p> 분리 공리, 대체 공리, 무한 공리, 정칙성 공리, 선택 공리는 나중에 소개될 것이다.</p>
+        </section>
+
+        <section class="right-widget">
+            <img src="../../images/settheory_image.webp" alt="집합론" width="500">
+        </section>
+
+        
+    </div>
+        
+
+    <section>
+        <li><a href="../../index.html" class="highlighted-link" >홈으로</a></li>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // sidebar.html을 동적으로 불러오는 스크립트
+        fetch('../../sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar').innerHTML = data;
+                // 레이아웃 재계산을 강제
+                document.getElementById('sidebar').style.width = 'auto'; 
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // 목차 동작을 위한 JavaScript 코드 실행
+            const mainMenuItems = document.querySelectorAll('.main-menu > a');
+
+            mainMenuItems.forEach(function(item) {
+                const parentLi = item.parentElement;
+                const isActive = localStorage.getItem(item.href); // 저장된 상태 불러오기
+
+                // 저장된 상태가 'true'면 목차를 열기
+                if (isActive === 'true') {
+                    parentLi.classList.add('active');
+                }
+
+                // 상위 목차 클릭 이벤트
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    
+                    // 열고 닫는 상태를 localStorage에 저장
+                    const isOpen = parentLi.classList.contains('active');
+                    localStorage.setItem(item.href, isOpen); // 열림 상태 저장
+                });
+            });
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+});
+        </script>
+
+    <footer>
+        <h1>© 2024 Merope</h1>
+    </footer>
+</body>
+</html>

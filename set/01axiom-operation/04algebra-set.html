@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>집합 대수</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>집합 대수</h1>
+    </header>
+
+    <div class="container">
+        <section class="sidebar">
+            <div id="sidebar"></div> 
+        </section>
+        <div id="sidebar"></div> 
+        
+
+        <!-- 중앙 본문 -->
+        <section class="content"> 
+            <h2>합집합, 교집합, 차집합</h2>
+            <p><a href = "02subset-axiom.html">1.10 분리 공리</a>와 , <a href = "00axioms-set-theory.html">1.4 합집합 공리</a>에 의하여 두 집합이 주어졌을 때 다음과 같은 유일한 집합들을 생성가능하다.</p>
+            <p>합집합 : \(A\cup B = \{x\ |\ x\in A \vee x\in B \}\)
+            </p>
+            <p>교집합 : \(A\cap B = \{x\in A\ |\ x\in B \}\)</p>
+            <p>차집합 : \(A-B = \{x\in A\ |\ x\notin B \}\)</p>
+            <p>Note : \(A-B\)는 \(A\setminus B\)로 표기하기도 한다.</p>
+            <h2>집합 대수</h2>
+            <p>1.14~1.18은 \(\cup, \cap, \subseteq, -\)에 대한 기본적인 성질들이다. 이를 집합 대수(Algebra of sets)라고 한다. 사실은 \(\forall A,B,C\)를 써야 하지만, 이는 생략하였다.</p>
+            <h3>1.14. 교환 법칙</h3>
+            <p>\(A\cup B = B\cup A\)<br>
+                \(A\cap B = B\cap A\)
+            </p>
+            <h4>설명.</h4>
+            <p>A에 B를 합집합하든, B에 A를 합집합하든 결과가 같다. 교집합도 마찬가지이다.</p>
+            <h4>증명.</h4>
+            <p>\(x\in A\cup B\)를 가정하자. 그러면 \(x\in A\) 또는 \(x\in B\)를 얻는다. 이는 \(x\in B\cup A\)를 함의하며, 더 자세한 설명은 생략한다. <a href = "00axioms-set-theory.html">1.1 외연 공리</a>를 사용함에 주목하자.</p>
+            <h3>1.15. 결합 법칙</h3>
+            <p>\(A\cup (B\cup C) = (A\cup B)\cup C\)<br>
+                \(A\cap (B\cap C) = (A\cap B)\cap C\)
+            </p>
+            <h4>설명.</h4>
+            <p>A에 B를 합집합하고 그 후에 C를 합집합하든, B와 C를 합집합하고 A를 합집합하든 결과는 변하지 않는다.</p>
+            <h4>증명.</h4>
+            <p>\(x\in A\cup (B\cup C)\)를 가정하자. <br>
+                그러면 \(x\in A\) 또는 \(x\in B\cup C\)이다. <br>
+                \(x\in A\)인 경우, \(x\in A\cup B\)이고, 따라서 \(  x\in (A\cup B)\cup C \)이다.<br>
+                \(x\in B\cup C\)인 경우, \(x\in B\) 또는 \(x\in C\)이다. <br>
+                \(x\in B\)인 경우, \(x\in A\cup B\)이고, 따라서 \(  x\in (A\cup B)\cup C \)이다.<br>
+                \(x\in C\)인 경우, \(  x\in (A\cup B)\cup C \)이다.<br>
+                따라서 그 어떤 경우에도 \(  x\in (A\cup B)\cup C \)이다. 
+                <br>같은 방식으로 하면, 외연 공리에 의해 결국 원하는 결론을 얻는다.
+            </p>
+            <h3>1.16. 분배 법칙</h3>
+            <p>\(A\cap (B\cup C) = (A\cap B)\cup(A\cap C)\)</p>
+            <p>\(A\cup (B\cap C) = (A\cup B)\cap(A\cup C)\)</p>
+            <h4>설명.</h4>
+            <p>덧셈과 곱셈의 분배법칙처럼, 교집합과 합집합의 분배법칙이 성립한다.</p>
+            <h4>증명.</h4>
+            <p>\(x\in A\cap (B\cup C)\)을 가정하자.<br>
+            \(x\in A\wedge x\in B\cup C\)를 얻는다.<br>
+            \(x\in B\cup C\)로부터, \(x\in B\vee x\in C\)이다.
+            \(x\in B\)인 경우, \(x\in A \wedge x\in B\)이므로 \(x\in (A\cap B)\cup(A\cap C)\)이다.<br>
+            \(x\in C\)인 경우도 마찬가지이다.<br>
+            역으로 \(x\in (A\cap B)\cup(A\cap C)\)을 가정하자. <br>
+            \(x\in A\cap B\)인 경우, \(x\in A\)이고 \(x\in B\)이므로 \(x\in A\cap (B\cup C)\)이다. <br>
+            \(x\in A\cap C\)인 경우도 마찬가지이다.
+        </p>
+        <h3>1.17. 드 모르간</h3>
+        <p>\(C-(A\cup B) = (C-A)\cap (C-B)\)<br>
+            \(C-(A\cap B) = (C-A)\cup (C-B)\)</p>
+        <h4>설명.</h4>
+        <p>전체 집합을 C라고 두었을 때, 우리가 알고 있는 여집합의 개념을 사용하면 합집합의 여집합은 여집합의 교집합, 교집합의 여집합은 여집합의 합집합이 된다.</p>
+        <h4>증명.</h4>
+        <p>\(x\in C-(A\cup B)\)를 가정하자.<br>
+        \(x\in C \wedge x \notin (A\cup B)\)를 얻는다.<br>
+        \(x\in A\)인 경우, \(x\in A\cup B\)이므로 모순이다. 따라서 \(x\notin A\)이다.<br>
+        같은 방식으로, \(x\notin B\)이다.<br>
+        이로부터 \(x\in (C-A)\cap (C-B)\)를 얻는다.<br>
+        역으로 \(x\in (C-A)\cap (C-B)\)를 가정하자.<br>
+        \(x\in (C-A)\wedge x\in (C-B)\)이다.<br>
+        이로부터 \(x\in C\)는 당연하다.<br>
+        \(x\notin A\)이고 \(x\notin B\)도 얻을 수 있다.<br>
+        만약 \(x\in A\cup B\)이면 이는 윗줄과 모순이므로, \(x\notin A\cup B\)이다.<br>
+        따라서 \(x\in C-(A\cup B)\)이다.
+        </p>
+
+        <h3>1.18. \(\emptyset\)에 관한 항등식</h3>
+        <p>\(A\cup \emptyset = A\)<br>
+            \(A\cap \emptyset = \emptyset\)<br>
+            \(A\cap(C-A) = \emptyset\)
+        </p>
+        <h4>증명.</h4>
+        <p>공집합과 관련된 성질들은, 대개 공허참으로 증명할 수 있다.<br>
+        첫 번째 성질만 증명하겠다. <br>\(x\in A\cup \emptyset\)을 가정하자.<br>
+        \(x\in A\)인 경우, 더 이상 보일 것이 없다.<br>
+        \(x\in \emptyset\)인 경우, 애초에 모순이다. 따라서 \(x\in A\)이다.<br>
+        역방향은 당연하다.
+    </p>
+
+    <h2>여집합
+    </h2>
+    <p>집합 S가 주어져서, 이를 전체집합이라고 하자. 곧, 우리가 다루는 모든 집합은 S의 부분집합이라고 하자. <br>
+    이 경우, 다음과 같이 여집합을 정의한다.<br>
+    \(A^c = S-A\)
+</p>    
+    <h3>1.19. 전체집합과 관련된 성질들</h3>
+    <p>A가 S의 부분집합이라 하자.<br>
+    \(A\cup S = S\)<br>
+    \(A\cap S = A\)<br>
+    \(A\cup A^c = S\)<br>
+    \(A\cap A^c = \emptyset\)   
+    </p>
+    <h4>증명.</h4>
+    <p>
+    (1) \(x\in A\cup S\)를 가정하자. <br>
+    \(x\in A\)인 경우, <a href = "/set/set-theory.html">부분집합의 정의</a>에 의하여, \(x\in S\)이다. <br>
+    \(x\in S\)인 경우, 더이상 보일 것이 없다. 역방향은 간단하다.<br>
+    (2) \(x\in A\cap S\)를 가정하자.<br>
+    \(x\in A\)로부터, 한 방향이 완료되었다.<br>
+    \(x\in A\)를 가정하자. \(A\subseteq S\)이므로, \(x\in S\)이다. 따라서 증명이 완료되었다.<br>
+    (3) \(x\in A \cup A^c\)를 가정하자. 둘 모두 S의 부분집합이므로, \(x\in S\)이다.<br>
+    역으로 \(x\in S\)를 가정하자. 배중률에 의하여 \(x\in A\)또는 \(x\notin A\)인데, 각각의 경우에 증명이 완료된다.<br>
+    (4) \(x \in A\)이고 \(x\notin A\)일 수는 없으므로, 공집합이다.
+    </p>
+
+        </section>
+
+        <section class="right-widget">
+            <img src="/images/settheory_image.webp" alt="집합론" width="500">
+        </section>
+    </div>
+
+    <section>
+        <li><a href="/index.html" class="highlighted-link">홈으로</a></li>
+    </section>
+
+    <footer>
+        <h1>© 2024 Merope</h1> <!-- 잘못된 닫는 태그 수정 -->
+    </footer>
+
+    <!-- 수정된 스크립트 코드 -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+            // 레이아웃 재계산을 강제
+            document.getElementById('sidebar').style.width = 'auto'; 
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // 목차 동작을 위한 JavaScript 코드 실행
+            const mainMenuItems = document.querySelectorAll('.main-menu > a');
+
+            mainMenuItems.forEach(function(item) {
+                const parentLi = item.parentElement;
+                const isActive = localStorage.getItem(item.href); // 저장된 상태 불러오기
+
+                // 저장된 상태가 'true'면 목차를 열기
+                if (isActive === 'true') {
+                    parentLi.classList.add('active');
+                }
+
+                // 상위 목차 클릭 이벤트
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    
+                    // 열고 닫는 상태를 localStorage에 저장
+                    const isOpen = parentLi.classList.contains('active');
+                    localStorage.setItem(item.href, isOpen); // 열림 상태 저장
+                });
+            });
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+});
+
+    </script>
+</body>
+</html>

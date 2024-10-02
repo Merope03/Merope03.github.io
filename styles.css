@@ -1,27 +1,33 @@
 /* 기본 스타일 */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #ECF0F1; /* 밝은 회색 배경 */
+    background-color: #f0f8ff; /* 밝은 회색 배경 */
     color: #34495E; /* 어두운 회색 텍스트 */
     font-family: 'Roboto', sans-serif; /* 현대적인 폰트 */
     display : flex;
     flex-direction: column;
     min-height : 100vh;
     margin : 0;
+    line-height: 0.5;
 }
 
 /* 헤더 스타일 */
 header {
-    height: 80px;
-    background-color: #2C3E50; /* 차분한 네이비 */
+    height: 100px;
+    background-color: rgba(52, 152, 219, 0.5); /* 차분한 네이비 */
     color: white;
     text-align: center;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+    margin-bottom : 20px;
 }
 
 main{
-    flex-grow : 1;
-    padding : 20px;
+    flex-grow : 0;
+    padding : 0;
 }
 
 /* 네비게이션 스타일 */
@@ -55,9 +61,9 @@ nav ul li a:hover {
 
 /* 섹션 스타일 */
 section {
-    max-width: 800px;
-    margin: 30px auto;
+    max-width : 100%;
     padding: 20px;
+    margin : auto;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 섹션에 그림자 */
     border-radius: 10px;
@@ -66,22 +72,30 @@ section {
 /* 푸터 스타일 */
 footer {
     height : 80px;
-    background-color: #2C3E50;
+    background-color: rgba(52, 152, 219, 0.5);
     color: white;
     text-align: center;
     padding: 20px;
     bottom: 0;
     width: 100%;
+    margin-top: 20px;
+}
+
+.footerfix{
+    position : fixed;
+    bottom : 0;
 }
 
 h2 {
     font-size: 28px; /* h2 제목 크기 */
     color: #1ABC9C; /* h2 텍스트 색상 */
+    line-height: 1;
+    text-align : center;
 }
 
 p {
     font-size: 16px; /* 단락 텍스트 크기 */
-    line-height: 1.6; /* 줄 간격 */
+    line-height: 1.8; /* 줄 간격 */
     color: #34495E; /* 단락 텍스트 색상 */
 }
 
@@ -97,4 +111,123 @@ img {
     display: block;
     margin: 0 auto;  /* 이미지 중앙 정렬 */
     max-width: 100%;  /* 화면 너비에 맞게 이미지 크기 조정 */
+}
+
+h3{
+    line-height: 1;
+}
+
+h4{
+    line-height : 1;
+}
+
+ul{
+    line-height: 1.5;
+}
+
+
+.parent {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+}
+
+/* mains의 스타일 */
+.mains {
+    width: 60%; /* 원하는 너비 설정 */
+    background-color: #f0f0f0; /* 배경색 */
+    padding: 20px;
+}
+
+.centered-text{
+    text-align : center;
+}
+
+.container {
+    max-width: 3000px;
+    display: flex;
+    justify-content: center;
+    padding : 10px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.sidebar, .right-widget{
+    flex-basis: 20%; /* 비율로 너비 설정 */
+    background-color: #f4f4f4;
+    margin : 0 20px;
+    padding : 10px;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+}
+
+.content {
+    width: 60%; /* 비율로 너비 설정 */
+    margin: 0 0;
+    background-color: #ffffff;
+    padding: 0;
+    flex-grow : 0;
+    flex-shrink: 0;
+    padding : 20px;
+}
+
+/* 모바일 화면 (768px 이하)에서의 스타일 */
+@media (max-width: 768px) {
+    .container, .parent {
+        flex-direction: column; /* 세로로 배치 */
+        align-items: center; /* 요소들을 중앙에 배치 */
+        padding: 10px;
+    }
+
+    .sidebar, .right-widget, .content, .mains {
+        width: 100%; /* 너비를 100%로 설정하여 화면에 맞춤 */
+    }
+
+    section {
+        max-width: 100%; /* 화면에 맞추어 섹션이 넘치지 않도록 */
+        padding: 20px; /* 패딩을 살짝 줄여서 공간 확보 */
+    }
+
+    header {
+        font-size: 12px; /* 헤더 글씨 크기 줄임 */
+        padding: 15px; /* 패딩도 조정 */
+    }
+
+    footer {
+        font-size: 12px; /* 푸터 글씨 크기 줄임 */
+        padding: 8px; /* 패딩도 조정 */
+    }
+}
+
+.sub-menu {
+    display : none; /* 숨김 처리 */
+    padding-left: 20px; /* 들여쓰기 */
+}
+
+/* 하위 목차를 보일 때 사용되는 클래스 */
+.active .sub-menu {
+    display: block; /* 활성화된 항목만 보임 */
+}
+
+/* 상위 항목 스타일 */
+.main-menu li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+/* 상위 목차 링크 스타일 */
+.main-menu a {
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+
+/* 링크 hover 스타일 */
+.main-menu a:hover {
+    text-decoration: underline;
+}
+
+.sites{
+    display : none;
 }

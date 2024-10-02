@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분리 공리와 러셀의 역설</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>분리 공리와 러셀의 역설</h1>
+    </header>
+
+    <div class="container">
+        <section class="sidebar">
+            <div id="sidebar"></div> 
+        </section>
+        <div id="sidebar"></div> 
+        
+
+        <!-- 중앙 본문 -->
+        <section class="content"> 
+           <h2>분리 공리</h2>
+           <p>곧 설명하겠지만, 집합을 단순하게 '일정한 조건을 만족하는 대상을 모은 것'이라고 정의하면, 역설이 발생한다. 따라서 집합은 다른 집합에 의하여 제한되어야만 하며, 이를 분리 공리, 또는 부분집합 공리라고 한다.</p>
+           <h3>1.10. 분리 공리</h3>
+           <p>B를 포함하지 않는 논리식 \(\phi\)에 대하여,<br>
+            \(\forall t_1 ... \forall t_k\forall c \exists B \forall x (x\in B \Leftrightarrow x\in c \wedge \phi)\)
+           </p>
+           <h4>설명.</h4>
+           <p>다음과 같이, a와 c의 교집합을 정의할 수 있다. <br>
+            \(\forall a \forall c \exists B \forall x (x\in B \Leftrightarrow x\in c \wedge x\in a)\)<br>
+            이를 \(a\cap c\)라고 쓴다.<br>
+            또한 다음과 같이, 차집합 A-B를 정의할 수 있다.<br>
+            \( \forall A \forall B \exists S\forall t [t\in S \Leftrightarrow t\in A \wedge t\notin B]\)<br>
+            분리 공리에 의하여 존재하는 집합은 당연히 <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의하여 유일하다. 이를 <br>
+            \(B=\{x\in c\ |\ \phi\}\)<br>
+            와 같이 나타내며, 조건제시법이라 부르기도 한다.
+           </p>
+
+           <h2>러셀의 역설</h2>
+           <p>모든 집합을 전부 다 모아놓을 수 있다고 가정하자. 집합이 일정한 조건을 만족하는 것들의 모임이라면, \(\{x=x\}\)와 같이 조건을 제시하면 세상의 모든 것을 전부 다 집합의 원소로 할 수 있는 것이 아닌가? 그러나 이는 곧 모순을 발생시킨다.</p>
+           <h3>1.11. 모든 집합을 전부 원소로 가지는 집합은 존재하지 않는다.</h3>
+           <h4>증명.</h4>
+           <p>A가 모든 집합을 다 모아놓은 집합이라고 하자. 그러면 <a href = "02subset-axiom.html">1.10 분리 공리</a>에 의하여(원한다면, 분리 공리를 사용하지 않아도 naive하게 다음의 집합을 생각가능하다.)<br>
+        \( 
+            B = \{ x\in A | x\notin x\}
+        \)
+        가 존재한다. 배중률에 의하여 \( B\in B \vee B\notin B\)이다. <br>
+        \(B \in B\)인 경우, B는 B의 원소인데 B의 원소는 자기 자신의 원소가 아니므로, 모순이다. <br>
+        \(B \notin B\)인 경우, B는 A의 원소가 아니거나 \(B\notin B\)를 만족시키지 않아야 한다. 그런데 A는 모든 것의 집합이므로, B는 A의 원소이다. 따라서 \(B\in B\)를 만족하고, 모순이다. <br>
+        따라서 그 어떤 경우도 모순이 되어, A가 모든 집합을 다 모아놓은 집합이라는 가정이 잘못되었다.
+        </p>
+        <p>위의 증명에서, A가 모든 것의 집합이므로 B가 A의 원소가 되어야 한다는 것에 주목하자. 그것이 역설을 발생시킨 원인이다. 따라서 단순하게 조건을 제시하여 집합을 생성할 수 있는 것이 아니라, 집합은 다른 집합으로부터 '제한'되어 있어야 한다.</p>
+
+        </section>
+
+        <section class="right-widget">
+            <img src="../../images/settheory_image.webp" alt="집합론" width="500">
+        </section>
+    </div>
+
+    <section>
+        <li><a href="../../index.html" class="highlighted-link">홈으로</a></li>
+    </section>
+
+    <footer>
+        <h1>© 2024 Merope</h1> <!-- 잘못된 닫는 태그 수정 -->
+    </footer>
+
+    <!-- 수정된 스크립트 코드 -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+            // 레이아웃 재계산을 강제
+            document.getElementById('sidebar').style.width = 'auto'; 
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // 목차 동작을 위한 JavaScript 코드 실행
+            const mainMenuItems = document.querySelectorAll('.main-menu > a');
+
+            mainMenuItems.forEach(function(item) {
+                const parentLi = item.parentElement;
+                const isActive = localStorage.getItem(item.href); // 저장된 상태 불러오기
+
+                // 저장된 상태가 'true'면 목차를 열기
+                if (isActive === 'true') {
+                    parentLi.classList.add('active');
+                }
+
+                // 상위 목차 클릭 이벤트
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    
+                    // 열고 닫는 상태를 localStorage에 저장
+                    const isOpen = parentLi.classList.contains('active');
+                    localStorage.setItem(item.href, isOpen); // 열림 상태 저장
+                });
+            });
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+});
+    </script>
+</body>
+</html>

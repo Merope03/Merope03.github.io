@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>합집합과 교집합</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1>합집합과 교집합</h1>
+    </header>
+
+    <div class="container">
+        <section class="sidebar">
+            <div id="sidebar"></div> 
+        </section>
+        <div id="sidebar"></div> 
+        
+
+        <!-- 중앙 본문 -->
+        <section class="content"> 
+            <h2>합집합</h2>
+            <p> 예를 들어, \( \{1,2\}, \{4,2,3\}, \{6, 1\}\)이라는 세 집합이 있다고 하자. 이 셋을 합집합한 집합은 \(\bigcup \{\{1,2\}, \{4,2,3\}, \{6, 1\}\}\)으로 표기하며, 이는 \(\{1,2,3,4,6\}\)과 같다. </p>
+            <h3>1.12. 합집합 공리</h3>
+            <p>\(
+                \forall A \exists B \forall x [x\in B \Leftrightarrow (\exists b \in A) x \in b ]
+                \)
+            </p>
+            <h4>설명.</h4>
+            <p>앞서 언급한 바와 같이, 이 B를 \(\bigcup A\)로 표기한다. 만약 \(A=\emptyset \)이면, \(\bigcup A = \bigcup \emptyset = \emptyset\)임을 확인가능하다.</p>
+            <h2>교집합</h2>
+            <p>합집합이 있으면 교집합도 있다. 예를 들어.
+                \(\{1,2\}\)와 \(\{2,3\}\)의 교집합은 \(\{2\}\)이다. 이를 나타내기 위해, \(\bigcap\{\{1,2\}, \{2,3\}\}=\{2\}\)와 같이 쓴다. 교집합을 정의하는 데에는 사실 공리가 필요하지 않다. 다음 정리는 이를 말하는 것이다.
+            </p>
+            <h3>1.13. 교집합의 존재성과 유일성</h3>
+            <p>공아닌 집합 \(A\)에 대하여, 다음을 만족하는 유일한 집합 \(B\)가 존재한다.<br>
+            \(x\in B \Leftrightarrow\) \(x\)는 \(A\)의 모든 원소에 속한다.</p>
+            <h4>증명.</h4>
+            <p>\(A\)가 공집합이 아니므로, \(A\)의 원소 \(c\)가 존재한다. <a href = "02subset-axiom.html">1.10 분리 공리</a>에 의하여, 다음의 집합이 존재한다.<br>
+            \(\{x\in c\ |\ (\forall y\in A)x\in y\}\)<br>
+        이렇게 특정 조건을 만족하는 집합이 유일함은, <a href = "00axioms-set-theory.html">1.1 외연 공리</a>에 의해 보장된다. 곧, 어떤 집합 \(B'\)이 존재하여 <br>
+        \(x\in B' \Leftrightarrow\) \(x\)는 \(A\)의 모든 원소에 속한다.<br>
+        을 만족시킨다고 하면, \(x\in B'\Leftrightarrow x\in B \)를 확인가능하므로 \(B=B'\)이다.</p>
+            <p>공집합을 교집합하면 어떻게 될까? \(x\in \bigcap \emptyset \)이라 하면, 교집합의 정의에 의하여 \((\forall y\in \emptyset) x\in y\)여야 한다. 이는 공허하게 참이다. 그러므로, 공집합을 교집합하면 일종의 '전체 집합'이 되는데, 이는 러셀의 역설을 발생시킨다. 
+                어떤 분야에서는 특정한 공간이 주어졌을 때 \(\bigcap \emptyset \)을 전체 공간으로 정의하기도 한다.
+            </p>
+
+        </section>
+
+        <section class="right-widget">
+            <img src="/images/settheory_image.webp" alt="집합론" width="500">
+        </section>
+    </div>
+
+    <section>
+        <li><a href="/index.html" class="highlighted-link">홈으로</a></li>
+    </section>
+
+    <footer>
+        <h1>© 2024 Merope</h1> <!-- 잘못된 닫는 태그 수정 -->
+    </footer>
+
+    <!-- 수정된 스크립트 코드 -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+            // 레이아웃 재계산을 강제
+            document.getElementById('sidebar').style.width = 'auto'; 
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // sidebar.html을 동적으로 불러오는 스크립트
+    fetch('../../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // 목차 동작을 위한 JavaScript 코드 실행
+            const mainMenuItems = document.querySelectorAll('.main-menu > a');
+
+            mainMenuItems.forEach(function(item) {
+                const parentLi = item.parentElement;
+                const isActive = localStorage.getItem(item.href); // 저장된 상태 불러오기
+
+                // 저장된 상태가 'true'면 목차를 열기
+                if (isActive === 'true') {
+                    parentLi.classList.add('active');
+                }
+
+                // 상위 목차 클릭 이벤트
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    
+                    // 열고 닫는 상태를 localStorage에 저장
+                    const isOpen = parentLi.classList.contains('active');
+                    localStorage.setItem(item.href, isOpen); // 열림 상태 저장
+                });
+            });
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+});
+
+    </script>
+</body>
+</html>
